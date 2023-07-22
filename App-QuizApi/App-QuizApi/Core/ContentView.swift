@@ -8,35 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-@StateObject var viewModel = ViewModel()
-@State private var selectedOption = ""
-
+@State private var userName = ""
+@State private var isShowingUser = false
+    
 var body: some View {
     NavigationView {
-        VStack {
-            if viewModel.questions.isEmpty {
-                Text("Loading questions...")
-                    .font(.title)
-                    .padding()
-                    .onAppear {
-                        viewModel.fetch()
-                    }
+            if isShowingUser {
+                LoadingQuestion()
             } else {
                 VStack {
-                    Text(viewModel.questions[0].statement)
-                        .font(.title)
-                    
-                    ForEach(viewModel.questions[0].options, id: \.self) { option in
-                        Button {
-                            selectedOption = option
-                        } label: {
-                            Text(option)
+                    TextField("Inserir Nome", text: $userName)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(10)
+                    Button {
+                        isShowingUser = true
+                    } label: {
+                        VStack {
+                            Text("INGRESAR")
                         }
-                    }
+                        .frame(width: 200, height: 40)
+                        .background(Color(.systemBlue))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     }
                 }
+                .padding(.horizontal)
+                .navigationTitle("Quiz App")
             }
-        .navigationTitle("Quiz App")
         }
     }
 }

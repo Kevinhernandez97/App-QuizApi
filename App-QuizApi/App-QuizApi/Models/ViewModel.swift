@@ -9,6 +9,7 @@ import Foundation
 
 class ViewModel: ObservableObject {
     @Published var questions: [Question] = []
+    @Published var result: [Result] = []
     
     func fetch() {
         guard let url = URL(string: "https://quiz-api-bwi5hjqyaq-uc.a.run.app/question") else { return }
@@ -30,6 +31,34 @@ class ViewModel: ObservableObject {
                 print("DEBUG: Error decoding question with error: \(error.localizedDescription)")
             }
             
+        }
+        task.resume()
+    }
+        
+    func submitAnswer(answer: String, for question: Question) {
+        guard let url = URL(string: "https://quiz-api-bwi5hjqyaq-uc.a.run.app/answer?questionId=\(question.id)") else { return }
+        
+        guard let postData = try? JSONEncoder().encode(["answer": answer]) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = postData
+        
+        let task = URLSession.shared.dataTask(with: request) {[weak self] data, _, error in
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(Result.self, from: data)
+                DispatchQueue.main.async {
+                    self?.result = [result]
+                }
+                print("Answer result: \(result.result)")
+            } catch {
+                print("DEBUG: Error decoding answer result with error: \(error.localizedDescription)")
+            }
         }
         task.resume()
     }
