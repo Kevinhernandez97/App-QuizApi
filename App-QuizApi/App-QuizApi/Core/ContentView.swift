@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello world")
+@StateObject var viewModel = ViewModel()
+@State private var selectedOption = ""
+
+var body: some View {
+    NavigationView {
+        VStack {
+            if viewModel.questions.isEmpty {
+                Text("Loading questions...")
+                    .font(.title)
+                    .padding()
+                    .onAppear {
+                        viewModel.fetch()
+                    }
+            } else {
+                VStack {
+                    Text(viewModel.questions[0].statement)
+                        .font(.title)
+                    
+                    ForEach(viewModel.questions[0].options, id: \.self) { option in
+                        Button {
+                            selectedOption = option
+                        } label: {
+                            Text(option)
+                        }
+                    }
+                    }
+                }
+            }
+        .navigationTitle("Quiz App")
+        }
     }
 }
 
