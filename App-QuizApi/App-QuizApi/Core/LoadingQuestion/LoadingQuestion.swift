@@ -17,12 +17,10 @@ struct LoadingQuestion: View {
     var body: some View {
         VStack {
             if viewModel.questions.isEmpty {
-                Text("Loading questions...")
-                    .font(.title)
-                    .padding()
-                    .onAppear {
-                        viewModel.fetch()
-                    }
+               LoadingView()
+                .onAppear {
+                    viewModel.fetch()
+                }
             } else {
                 VStack(alignment: .leading) {
                     Text(viewModel.questions[0].statement)
@@ -59,7 +57,6 @@ struct LoadingQuestion: View {
                                 .frame(width: 80, height: 80)
                                 .background(viewModel.result[0].result == true ? .green : .red)
                                 .cornerRadius(10)
-//                                Text("\(answersResponse)")
                         }
                         
                         Spacer()
