@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479D07C02A6CA0ED00E218B5 /* ResultQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479D07BF2A6CA0ED00E218B5 /* ResultQuiz.swift */; };
 		47D44F062A6C4D2B00F46A41 /* App_QuizApiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44F052A6C4D2B00F46A41 /* App_QuizApiApp.swift */; };
 		47D44F082A6C4D2B00F46A41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44F072A6C4D2B00F46A41 /* ContentView.swift */; };
 		47D44F0A2A6C4D3000F46A41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D44F092A6C4D3000F46A41 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		479D07BF2A6CA0ED00E218B5 /* ResultQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultQuiz.swift; sourceTree = "<group>"; };
 		47D44F022A6C4D2B00F46A41 /* App-QuizApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App-QuizApi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D44F052A6C4D2B00F46A41 /* App_QuizApiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App_QuizApiApp.swift; sourceTree = "<group>"; };
 		47D44F072A6C4D2B00F46A41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		479D07BE2A6CA0D500E218B5 /* ResultQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				479D07BF2A6CA0ED00E218B5 /* ResultQuiz.swift */,
+			);
+			path = ResultQuiz;
+			sourceTree = "<group>";
+		};
 		47D44EF92A6C4D2B00F46A41 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		47D44F2F2A6C4D5C00F46A41 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				479D07BE2A6CA0D500E218B5 /* ResultQuiz */,
 				47D44F372A6C7D8200F46A41 /* LoadingQuestion */,
 				47D44F072A6C4D2B00F46A41 /* ContentView.swift */,
 			);
@@ -315,6 +326,7 @@
 				47D44F082A6C4D2B00F46A41 /* ContentView.swift in Sources */,
 				47D44F3B2A6C7DEA00F46A41 /* LoadingQuestion.swift in Sources */,
 				47D44F3D2A6C814200F46A41 /* User.swift in Sources */,
+				479D07C02A6CA0ED00E218B5 /* ResultQuiz.swift in Sources */,
 				47D44F362A6C4DE500F46A41 /* Question.swift in Sources */,
 				47D44F3F2A6C87A900F46A41 /* Result.swift in Sources */,
 				47D44F342A6C4DB700F46A41 /* ViewModel.swift in Sources */,

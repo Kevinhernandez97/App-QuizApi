@@ -11,6 +11,7 @@ struct Question: Codable, Identifiable {
     let id: String
     let statement: String
     let options: [String]
+    var answered: Bool = false
     
     enum CodingKeys: String, CodingKey {
        case id
