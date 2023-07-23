@@ -24,6 +24,7 @@ class ViewModel: ObservableObject {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 decoder.dataDecodingStrategy = .deferredToData
                 let questions = try decoder.decode(Question.self, from: data)
+                
                 DispatchQueue.main.async {
                     self.questions = [questions]
                 }

@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
 @State private var userName = ""
-@State private var isShowingUser = false
+//@State private var isShowingUser = false
+    @ObservedObject var appState = AppState()
     
 var body: some View {
     NavigationView {
-            if isShowingUser {
-                LoadingQuestion()
+        if appState.isShowingUser {
+            LoadingQuestion()
             } else {
                 VStack {
                     TextField("Inserir Nome", text: $userName)
@@ -22,16 +23,18 @@ var body: some View {
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
                     Button {
-                        isShowingUser = true
+                        appState.isShowingUser = true
                     } label: {
                         VStack {
                             Text("INGRESAR")
                         }
                         .frame(width: 200, height: 40)
                         .background(Color(.systemBlue))
+                        .opacity(userName.isEmpty ? 0.5 : 1.0)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                     }
+                    .disabled(userName.isEmpty)
                 }
                 .padding(.horizontal)
                 .navigationTitle("Quiz App")
