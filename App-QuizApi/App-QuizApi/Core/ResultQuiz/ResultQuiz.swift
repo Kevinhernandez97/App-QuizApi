@@ -46,7 +46,7 @@ struct ResultQuiz: View {
                     animateScore.toggle()
                 }
             } label: {
-                Text("Restar Quiz")
+                Text("Recomeçar Quiz")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
